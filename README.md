@@ -27,7 +27,7 @@ npm i hls.js
 import Hls from 'hls.js';
 ```
 
-### Quelques lignes importantes
+### Quelques lignes importantes ( cf /src/views/Home.vue )
 
 ```js
  if (Hls.isSupported()) {...}
