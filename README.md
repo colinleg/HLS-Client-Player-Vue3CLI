@@ -1,24 +1,55 @@
-# hls-js
+# Lecteur vidéo HLS avec Vue3-CLI [Fr]
 
-## Project setup
+https://github.com/video-dev/hls.js
+
+## Mettre en place le projet
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Démarrer un serveur de développement
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Compiler et minifier pour la production
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
+### installer Hls
+```js
+npm i hls.js
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### importer Hls
+```js
+import Hls from 'hls.js';
+```
+
+### Quelques lignes importantes
+
+```js
+ if (Hls.isSupported()) {...}
+```
+```js
+let hls = new Hls();
+hls.attachMedia(player);
+```
+
+```js
+ hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+    console.log('player and hls.js sont liés !');
+ });
+```
+```js
+hls.loadSource('ma/source/video.m3u8');
+```
+
+```js
+hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+  console.log(
+    'manifest loaded, found ' + data.levels.length + ' quality level'
+  ); 
+}
+```
